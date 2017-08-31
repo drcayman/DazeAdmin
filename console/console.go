@@ -88,8 +88,8 @@ func Add(){
 				exptime=time.Time{}
 				break
 			}
-			exptime,err=time.Parse("2006-01-02 15:04:05 MST",string(buf)+" CST")
-			d,_:=time.ParseDuration("-14h")
+			exptime,err=time.Parse("2006-01-02 15:04:05",string(buf))
+			d,_:=time.ParseDuration("-8h")
 			exptime=exptime.Add(d)
 			if err!=nil{
 				fmt.Println("格式不正确！请重新输入。")
@@ -124,7 +124,7 @@ func exptimestring(t time.Time)string{
 	if t.IsZero(){
 		return "永不过期"
 	}
-	d,_:=time.ParseDuration("+14h")
+	d,_:=time.ParseDuration("+8h")
 	return t.Add(d).Format("2006-01-02 15:04:05")
 }
 func groupstringToHuman(s []string) string{
@@ -206,14 +206,14 @@ func editExptime(id int,u database.User){
 	var exptime time.Time
 	times:=0
 	for{
-		fmt.Printf("请输入此用户的过期时间（格式2006-01-02 15:04:05，输入0为永不过期，3次错误为退出）：")
+		fmt.Printf("请输入此用户的过期时间（北京时间！格式2006-01-02 15:04:05，输入0为永不过期，3次错误为退出）：")
 		if buf,_,err:=bufio.NewReader(os.Stdin).ReadLine();err==nil{
 			if string(buf)=="0"{
 				exptime=time.Time{}
 				break
 			}
-			exptime,err=time.Parse("2006-01-02 15:04:05 MST",string(buf)+" CST")
-			d,_:=time.ParseDuration("-14h")
+			exptime,err=time.Parse("2006-01-02 15:04:05",string(buf))
+			d,_:=time.ParseDuration("-8h")
 			exptime=exptime.Add(d)
 			if err!=nil{
 				fmt.Println("格式不正确！请重新输入。")

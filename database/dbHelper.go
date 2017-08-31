@@ -6,6 +6,7 @@ import (
 	"log"
 	"time"
 	"fmt"
+	"os"
 )
 var engine *xorm.Engine
 type User struct {
@@ -66,5 +67,6 @@ func LoadDatabase(driver string,connectionString string){
 		log.Fatal("数据库加载失败！原因：",err)
 	}
 	count:=GetUserCount()
-	log.Println("数据库连接成功！用户数：",count)
+	fmt.Println("数据库连接成功！用户数：",count)
+	os.Stdout.Sync()
 }
