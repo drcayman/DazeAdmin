@@ -98,6 +98,7 @@ func Add(){
 				}
 				continue
 			}
+			exptime=exptime.UTC()
 			break
 		}
 	}
@@ -219,6 +220,7 @@ func editExptime(id int,u database.User){
 				}
 				continue
 			}
+			exptime=exptime.UTC()
 			break
 		}
 	}
