@@ -53,7 +53,7 @@ func Start(){
 				continue
 			}
 			if flag,name:=database.DeleteById(id);flag{
-				fmt.Printf("删除用户成功（ID：%d,用户名：%s）",id,name)
+				fmt.Printf("删除用户成功（ID：%d,用户名：%s）\n",id,name)
 			}else{
 				fmt.Println("删除用户失败，或许是ID错误了？")
 			}
