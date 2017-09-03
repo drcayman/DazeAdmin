@@ -71,12 +71,12 @@ func Add(){
 	var exptime time.Time
 	var group []string
 	fmt.Printf("请输入要新建的用户名(不允许空格，留空为退出)：")
-	if n,_:=fmt.Scanf("%s",&username);n==0{
+	if n,_:=fmt.Scanf("%s\n",&username);n==0{
 		fmt.Println("退出添加向导")
 		return
 	}
 	fmt.Printf("请输入此用户的新密码(不允许空格，留空为退出)：")
-	if n,_:=fmt.Scanf("%s",&password);n==0{
+	if n,_:=fmt.Scanf("%s\n",&password);n==0{
 		fmt.Println("退出添加向导")
 		return
 	}
@@ -157,7 +157,7 @@ func Edit(){
 	var flag bool
 	var sel int
 	fmt.Println("请输出要编辑的用户ID（留空为退出）：")
-	if n,_:=fmt.Scanf("%d",&id);n==0{
+	if n,_:=fmt.Scanf("%d\n",&id);n==0{
 		fmt.Println("退出编辑向导")
 		return
 	}
@@ -168,7 +168,7 @@ func Edit(){
 	fmt.Printf("此用户信息如下：\n用户名:%s\n过期时间:%s\n所属服务器组:%s\n",
 	u.Username,exptimestring(u.Expired),DBgroupToString(u.Group))
 	fmt.Println("\n\n要编辑的项目：\n1.用户名\n2.密码\n3.过期时间\n4.所属服务器组\n请输入要编辑的序号（留空为退出）：")
-	if n,_:=fmt.Scanf("%d",&sel);n==0{
+	if n,_:=fmt.Scanf("%d\n",&sel);n==0{
 		fmt.Println("退出编辑向导")
 		return
 	}
@@ -185,7 +185,7 @@ func Edit(){
 func editUserName(id int,u database.User){
 	var username string
 	fmt.Printf("请输入新用户名(不允许空格，留空为退出)：")
-	if n,_:=fmt.Scanf("%s",&username);n==0{
+	if n,_:=fmt.Scanf("%s\n",&username);n==0{
 		fmt.Println("退出编辑向导")
 		return
 	}
@@ -195,7 +195,7 @@ func editUserName(id int,u database.User){
 func editPassword(id int,u database.User){
 	var password string
 	fmt.Printf("请输入新密码(不允许空格，留空为退出)：")
-	if n,_:=fmt.Scanf("%s",&password);n==0{
+	if n,_:=fmt.Scanf("%s\n",&password);n==0{
 		fmt.Println("退出编辑向导")
 		return
 	}

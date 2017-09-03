@@ -15,7 +15,7 @@ type S_config struct{
 }
 var config S_config
 func main(){
-	fmt.Println("DazeAdmin v1.0 DazeProxyV3数据库管理工具")
+	fmt.Println("DazeAdmin v1.1 DazeProxyV3数据库管理工具")
 	buf,ReadErr:=ioutil.ReadFile("config.json")
 	if ReadErr!=nil{
 		fmt.Println("配置文件(config.json)读取错误："+ReadErr.Error())
