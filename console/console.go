@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"bufio"
 	"os"
-	"DazeProxy/util"
 	"strings"
+	"github.com/crabkun/DazeAdmin/util"
 	"github.com/crabkun/DazeAdmin/database"
 	"time"
 )
@@ -30,7 +30,7 @@ func Start(){
 		if err!=nil{
 			return
 		}
-		bufstr:=util.B2s(buf)
+		bufstr:=string(buf)
 		fmt.Sscanf(bufstr,"%s",&command)
 		switch strings.ToLower(command) {
 		case "help":
